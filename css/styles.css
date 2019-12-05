@@ -8,12 +8,16 @@
   
 }
 
+
+
+/* main content  */
+
 .container {
   display: grid;
   height: 100vh;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  background: linear-gradient(143.53deg, #0073BA 7.29%, #07466C 100%);
+ 
 }
 
 .header {
@@ -38,11 +42,17 @@
   font-size: 18px;
   font-weight: bold;
 }
+.nav-links li a:hover {
+  color: aquamarine;
+  opacity: 0.5;
+}
 
 .carousel {
+  position: absolute;
+  z-index: 1001;
   grid-row: 1 / -1;
   grid-column: 1 / 6;
-  background: red;
+  /* background: red; */
 }
 
 .main {
@@ -58,7 +68,7 @@
 }
 
 .main > .logo {
-  grid-row: 2 / 2;
+  grid-row: 5 / 5;
 }
 
 .logo-1 {
@@ -131,3 +141,75 @@
   }
 }
 
+/* wave  */
+.container {
+  background: linear-gradient(143.53deg, #0073BA 7.29%, #07466C 100%);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container .wave{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave.png);
+  background-size: 1000px 100px;
+}
+.container .wave-tan{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-size: 1000px 100px;
+  background: url(../css/wave\ 1.png);
+}
+
+.container .wave.wave-1 {
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+.container .wave.wave-2 {
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+.container .wave.wave-3 {
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+.container .wave.wave-4 {
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+@keyframes wave {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+@keyframes wave2 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
