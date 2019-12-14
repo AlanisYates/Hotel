@@ -7,15 +7,15 @@
   font-family: "Montserrat", sans-serif;
 }
 
-/* main content  */
+/*---------------------- MAIN ------------------------------------------------- */
 
 .container {
   display: grid;
   height: 100vh;
   grid-template-areas:
-    "c c h h"
-    "c c m m"
-    "c c m m";
+    "c c c h"
+    "c c c m"
+    "c c c m";
 }
 
 .header {
@@ -40,10 +40,10 @@
   font-weight: bold;
 }
 .nav-links li a:hover {
-  color: aquamarine;
-  opacity: 0.5;
+  color: rgb(132, 169, 243);
+//   opacity: 0.7;
+  transition: 0.2s ease-out;
 }
-
 
 .main {
   grid-area: m;
@@ -54,60 +54,106 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 80vh;
   /* background: blue; */
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-1,
+  .logo-2 {
+    font-size: 140px;
+  }
+
+  .logo-3 {
+    text-align: right;
+    font-weight: 400;
+  }
 }
 
 /*---------------------- slider ------------------------------------------------- */
-.carousel {
-  position: absolute;
-  z-index: 1001;
+slider {
+  z-index: 1050;
   grid-area: c;
-  /* background: red; */
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
+  overflow: hidden;
+  position: absolute;
 }
 
-#slider {
+slider > * {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #1f1f1f;
+  animation: slide 12s infinite ease-out;
   overflow: hidden;
 }
 
-#slider figure {
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  animation: 20s slider infinite;
+slide:nth-child(1) {
+  left: 0%;
+  animation-delay: -1s;
+  background-image: url(../images/apartment-beach-bed-bedroom-271643.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-#slider figure img {
-  width: 20%;
-  float: left;
+slide:nth-child(2) {
+  animation-delay: 2s;
+  background-image: url(../images/apartment-bed-bedroom-contemporary-271672.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-@keyframes slider {
+slide:nth-child(3) {
+  animation-delay: 5s;
+  background-image: url(../images/bed-bedroom-comfort-contemporary-545046.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+slide:nth-child(4) {
+  left: 0%;
+  animation-delay: 8s;
+  background-image: url(../images/bedroom-decoration-hotels-interior-833045.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+slide p {
+  font-family: Comfortaa;
+  font-size: 70px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin-top: 340px;
+  color: #fff;
+}
+
+@keyframes slide {
   0% {
-    left: 0;
+    left: 100%;
+    width: 100%;
   }
-  20% {
-    left: 0;
+  5% {
+    left: 0%;
   }
   25% {
+    left: 0%;
+  }
+  30% {
     left: -100%;
+    width: 100%;
   }
-  45% {
+  31% {
     left: -100%;
-  }
-  50% {
-    left: -200%;
-  }
-  70% {
-    left: -200%;
-  }
-  75% {
-    left: -300%;
-  }
-  95% {
-    left: -300%;
+    width: 0%;
   }
   100% {
-    left: -400%;
+    left: 100%;
+    width: 0%;
   }
 }
 
@@ -183,3 +229,41 @@
     background-position-x: -1000px;
   }
 }
+
+// Media Quers Mixins
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) and (max-width: 1700px) {
+    @content;
+  }
+}
+@mixin mediaXxl {
+  @media screen and (min-width: 1701px) and (max-width: 1900px) {
+    @content;
+  }
+}
+@mixin mediaXxxl {
+  @media screen and (min-width: 1901px) {
+    @content;
+  }
+}
+
+
+@import "mobile";

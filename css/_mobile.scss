@@ -1,0 +1,111 @@
+// Large Screens
+@include mediaXxxl {
+  .container {
+    grid-template-areas:
+      "c c h h"
+      "c c m m"
+      "c c m m";
+  }
+  .main {
+    height: 90vh;
+    .logo-1,
+    .logo-2 {
+      font-size: 150px;
+    }
+  }
+}
+@include mediaXxl {
+  .main {
+    height: 90vh;
+    .logo-1,
+    .logo-2 {
+      font-size: 90px;
+    }
+  }
+}
+@include mediaXl {
+  .main {
+    height: 90vh;
+    .logo-1,
+    .logo-2 {
+      font-size: 90px;
+    }
+  }
+}
+
+@include mediaLg {
+  .container {
+    grid-template-areas:
+      "h"
+      "m"
+      "m";
+  }
+  .header {
+    height: 10vh;
+  }
+  .main {
+    height: 90vh;
+    .logo-1,
+    .logo-2 {
+      font-size: 75px;
+    //   color: yellow;
+    }
+  }
+
+  slider {
+    display: none;
+  }
+}
+
+@include mediaMd {
+  .container {
+    grid-template-areas:
+      "h"
+      "m"
+      "m";
+  }
+
+  .nav-links li a {
+    display: none;
+  }
+
+  slider {
+    display: none;
+  }
+  .main {
+    height: 90vh;
+    .logo-1,
+    .logo-2 {
+      font-size: 50px;
+    //   color: brown;
+    }
+  }
+
+  .header {
+      display: flex;
+      flex-direction: row;
+      padding: 15px;
+      justify-content: flex-end;
+  }
+  .menu-btn {
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    // @include easeOut;
+
+    .btn-line {
+      width: 28px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background: white;
+      //   @include easeOut;
+    }
+
+    }
+  }
+
+@include mediaSm {
+  slider {
+    display: none;
+  }
+}
